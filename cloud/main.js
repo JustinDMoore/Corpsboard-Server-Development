@@ -1,53 +1,3 @@
-// Gets a random fact to be displayed when loading
-Parse.Cloud.define("getRandomFact", function(request, response)
-                   {
-                   Parse.Cloud.run('getFactsCount', {}, {
-                                   success: function(result) {
-                                   
-                                   
-                                   var rnd = Math.floor(Math.random()*result) + 1;
-                                
-                                   var query = new Parse.Query("Facts");
-                                   query.equalTo("index", rnd);
-                                   query.find({
-                                              success: function(result) {
-                                              
-                                              response.success(result);
-                                              },
-                                              error: function() {
-                                              response.error("Cloud: Error getting random fact");
-                                              }
-                                              });
-                                   
-                                   
-                                   },
-                                   error: function(error) {
-                                   }
-                                   });
-                   
-                   
-                   });
-
-Parse.Cloud.define("getFactsCount", function(request, response)
-                   {
-                   var countQuery = new Parse.Query("Facts");
-                   var countResult = countQuery.count(
-                                                      {
-                                                      success: function(count)
-                                                      {
-
-                                                      response.success(count);
-                                                      
-                                                      },
-                                                      error: function()
-                                                      {
-                                                      response.error("We should never get here from Cloud Code");
-                                                      }
-                                                      });
-                   });
-
-
-
 
 // Increments number of messages in the chatroom a message is sent to
 Parse.Cloud.afterSave("Chat", function(request, response) {
@@ -177,7 +127,7 @@ Parse.Cloud.afterSave("feedback", function(request, response) {
                       
                       } else { // it is new
                       
-                      var query = new Parse.Query("admin");
+                      var query = new Parse.Query("AppSettings");
                       query.equalTo("objectId", "IjplBNRNjj");
                       query.first({
                                   success: function(object) {
@@ -216,7 +166,7 @@ Parse.Cloud.afterSave("photos", function(request, response) {
                       
                       var userSubmitted = request.object.get("isUserSubmitted");
                       if (userSubmitted) {
-                      var query = new Parse.Query("admin");
+                      var query = new Parse.Query("AppSettings");
                       query.equalTo("objectId", "IjplBNRNjj");
                       query.first({
                                   success: function(object) {
@@ -253,7 +203,7 @@ Parse.Cloud.afterSave("reportUsers", function(request, response) {
                       if (request.object.existed()) { // it existed before
                       } else { // it is new
                       
-                      var query = new Parse.Query("admin");
+                      var query = new Parse.Query("AppSettings");
                       query.equalTo("objectId", "IjplBNRNjj");
                       query.first({
                                   success: function(object) {
@@ -291,7 +241,7 @@ Parse.Cloud.afterSave("problems", function(request, response) {
                       } else { // it is new
                       
                       var type = request.object.get("type");
-                      var query = new Parse.Query("admin");
+                      var query = new Parse.Query("AppSettings");
                       query.equalTo("objectId", "IjplBNRNjj");
                       query.first({
                                   success: function(object) {
@@ -436,7 +386,7 @@ Parse.Cloud.define("getItemsInCart", function(request, response) {
 Parse.Cloud.define("getStoreCategories", function(request, response) {
                    
                    Parse.Cloud.useMasterKey();
-                   var query = new Parse.Query("banners");
+                   var query = new Parse.Query("Banners");
                    query.equalTo("type", "STORECATEGORY");
                    query.equalTo("hidden", false);
                    query.ascending("order");
@@ -460,7 +410,7 @@ Parse.Cloud.define("getStoreCategories", function(request, response) {
 Parse.Cloud.define("getStoreBanners", function(request, response) {
                    
                    Parse.Cloud.useMasterKey();
-                   var query = new Parse.Query("banners");
+                   var query = new Parse.Query("Banners");
                    query.equalTo("type", "STORE");
                    query.equalTo("hidden", false);
                    query.ascending("order");
