@@ -20,7 +20,7 @@ var api = new ParseServer({
   fileKey: '57edad47-342b-49b5-97c5-bd384b2b8c46',
   FACEBOOK_APP_ID: '266535450217937',
   liveQuery: {
-    classNames: ["Posts", "Comments"] // List of classes to support for query subscriptions
+    classNames: ["Chat", "Messages"] // List of classes to support for query subscriptions
   }
 });
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
