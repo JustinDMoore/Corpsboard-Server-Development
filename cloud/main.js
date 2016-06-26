@@ -459,3 +459,22 @@ Parse.Cloud.define("getStoreBanners", function(request, response) {
 //               }
 //               });
 //};
+
+
+Parse.Cloud.define("pushScores", function(request, response) {
+                   
+                Parse.Push.send({
+  channels: [ "Global" ],
+  data: {
+    alert: request.params.message
+  }
+}, {
+  success: function() {
+    console.log("Push was successful.");
+  },
+  error: function(error) {
+   console.log("Push failed.");
+  }
+});
+
+                   });
