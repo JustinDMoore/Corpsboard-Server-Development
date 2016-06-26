@@ -5,7 +5,9 @@ Parse.Push.send({
   data: {
      alert: "Quit Your Jibba Jabba"
   }
-}, { success: function() { 
+}, { 
+  useMasterKey: true,
+  success: function() { 
   	console.log("Push successful.")
   }, error: function(err) { 
     console.log(err);
