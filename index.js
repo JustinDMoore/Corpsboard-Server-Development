@@ -22,12 +22,12 @@ var api = new ParseServer({
   push: {
     ios: [
       {
-        pfx: '/Push/CorpsboardPushDevelopment.p12', // Dev PFX or P12
+        pfx: 'Push/CorpsboardPushDevelopment.p12', // Dev PFX or P12
         bundleId: 'com.justin.corpboard',
         production: false // Dev
       },
       {
-        pfx: '/Push/CorpsboardPushProduction.p12', // Prod PFX or P12
+        pfx: 'Push/CorpsboardPushProduction.p12', // Prod PFX or P12
         bundleId: 'com.justin.corpboard',  
         production: true // Prod
       }
