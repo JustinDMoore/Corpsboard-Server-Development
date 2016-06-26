@@ -473,7 +473,7 @@ Parse.Cloud.define("pushScores", function(request, response) {
     console.log("Push was successful.");
   },
   error: function(error) {
-   console.log("Push failed.");
+   console.log("Push failed."+ error);
   }
 });
 
