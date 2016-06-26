@@ -3,7 +3,7 @@ Parse.Cloud.define("pushScores", function(request, response) {
 Parse.Push.send({
   channels: [ "global" ],
   data: {
-     alert: "Quit Your Jibba Jabba"
+     alert: request.params.message
   }
 }, { 
   useMasterKey: true,
