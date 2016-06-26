@@ -19,6 +19,20 @@ var api = new ParseServer({
   serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',  // Don't forget to change to https if needed
   fileKey: '57edad47-342b-49b5-97c5-bd384b2b8c46',
   FACEBOOK_APP_ID: '266535450217937',
+  push: {
+    ios: [
+      {
+        pfx: '/Push/CorpsboardPushDevelopment.p12', // Dev PFX or P12
+        bundleId: 'com.justin.corpboard',
+        production: false // Dev
+      },
+      {
+        pfx: '/Push/CorpsboardPushProduction.p12', // Prod PFX or P12
+        bundleId: 'com.justin.corpboard',  
+        production: true // Prod
+      }
+    ]
+  },
   liveQuery: {
     classNames: ["Rooms", "Messages"] // List of classes to support for query subscriptions
   }
