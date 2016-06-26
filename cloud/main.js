@@ -33,7 +33,7 @@ query.equalTo('user', targetUser);
     }, {
     useMasterKey: true,
     success: function() {
-        console.log("success: Message Push");
+        console.log("success: Message Push" + request.params.objectId);
     },
     error: function(e) {
         console.log("error: Message Push: " + e.code + " msg: " + e.message);
