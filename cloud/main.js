@@ -1,7 +1,7 @@
 Parse.Cloud.define("pushScores", function(request, response) {
                    
 Parse.Push.send({
-  channels: [ "Global" ],
+  channels: [ "global" ],
   data: {
      alert: "Quit Your Jibba Jabba"
   }
