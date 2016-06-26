@@ -16,7 +16,7 @@ var api = new ParseServer({
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
   appId: process.env.APP_ID || 'wx8eMIWy1f9e60WrQJYUI81jlk5g6YYAPPmwxequ',
   masterKey: process.env.MASTER_KEY || 'ghQaWz8I6ufa4jd5ZEN3W6kTAOXMSBCt6r9k7gKt', //Add your master key here. Keep it secret!
-  serverURL: process.env.SERVER_URL || 'http://localhost:1337/parse',  // Don't forget to change to https if needed
+  serverURL: process.env.SERVER_URL || 'https://corpsboard.herokuapp.com/parse',  // Don't forget to change to https if needed
   fileKey: '57edad47-342b-49b5-97c5-bd384b2b8c46',
   FACEBOOK_APP_ID: '266535450217937',
   push: {
