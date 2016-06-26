@@ -20,12 +20,18 @@ var api = new ParseServer({
   fileKey: '57edad47-342b-49b5-97c5-bd384b2b8c46',
   FACEBOOK_APP_ID: '266535450217937',
   push: {
-    ios:
+        ios: [
       {
         pfx: 'Push/CBCertDev.p12', // Dev PFX or P12
         bundleId: 'com.justin.corpboard',
         production: false // Dev
+      },
+      {
+        pfx: 'Push/CBProd.p12', // Dev PFX or P12
+        bundleId: 'com.justin.corpboard',
+        production: true // Prod
       }
+    ]
   },
   liveQuery: {
     classNames: ["Rooms", "Messages"] // List of classes to support for query subscriptions
