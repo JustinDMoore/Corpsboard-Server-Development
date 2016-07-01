@@ -5,7 +5,7 @@ var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 var path = require('path');
 
-var databaseUri = 'mongodb://JustinDMoore:Ju$tin!1@ds011345-a0.mlab.com:11345,ds011345-a1.mlab.com:11345/corpsboard?replicaSet=rs-ds011345';
+var databaseUri = 'mongodb://JustinDMoore:Ju$tin!1@ds013222.mlab.com:13222/corpboard';
 
 if (!databaseUri) {
   console.log('DATABASE_URI not specified, falling back to localhost.');
@@ -26,11 +26,6 @@ var api = new ParseServer({
         bundleId: 'com.justin.corpboard',
         production: false // Dev
       },
-      {
-        pfx: 'Push/CorpsboardPushProductionCertificate.p12', // Prod P12
-        bundleId: 'com.justin.corpboard',
-        production: true // Prod
-      }
     ]
   },
   liveQuery: {
@@ -52,7 +47,7 @@ app.use(mountPath, api);
 
 // Parse Server plays nicely with the rest of your web routes
 app.get('/', function(req, res) {
-  res.status(200).send('Corpsboard-Server running.');
+  res.status(200).send('Corpsboard-Server Development running.');
 });
 
 // There will be a test page available on the /test path of your server url
@@ -64,7 +59,7 @@ app.get('/test', function(req, res) {
 var port = process.env.PORT || 1337;
 var httpServer = require('http').createServer(app);
 httpServer.listen(port, function() {
-    console.log('Corpsboard-Server running on port ' + port + '.');
+    console.log('Corpsboard-Server DEVELOPMENT running on port ' + port + '.');
 });
 
 // This will enable the Live Query real-time server
